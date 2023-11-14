@@ -28,8 +28,8 @@ public:
   bool separateDigi() const { return m_separateDigi; }
 
 private:
-  bool m_addToBarrel;
-  bool m_separateDigi;
+  const bool m_addToBarrel;
+  const bool m_separateDigi;
 
   /// EB
   CaloSimParameters theComponentParameters;

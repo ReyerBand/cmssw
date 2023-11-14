@@ -1,23 +1,23 @@
 #include "DataFormats/EcalDigi/interface/EcalTimeDigi.h"
 
 namespace {
-  constexpr unsigned int MAXSAMPLES = 10;
+  constexpr unsigned int maxSamples = 10;
 }  // namespace
 
-EcalTimeDigi::EcalTimeDigi() : id_(0), size_(0), sampleOfInterest_(-1), waveform_(WAVEFORMSAMPLES), data_(MAXSAMPLES) {}
+EcalTimeDigi::EcalTimeDigi() : id_(0), size_(0), sampleOfInterest_(-1), waveform_(waveFormSamples), data_(maxSamples) {}
 
 EcalTimeDigi::EcalTimeDigi(const DetId& id)
-    : id_(id), size_(0), sampleOfInterest_(-1), waveform_(WAVEFORMSAMPLES), data_(MAXSAMPLES) {}
+    : id_(id), size_(0), sampleOfInterest_(-1), waveform_(waveFormSamples), data_(maxSamples) {}
 
 void EcalTimeDigi::setSize(unsigned int size) {
   size_ = size;
-  if (size > MAXSAMPLES)
+  if (size > maxSamples)
     data_.resize(size_);
 }
 
 void EcalTimeDigi::setWaveform(float* waveform) {
-  waveform_.resize(WAVEFORMSAMPLES);
-  for (uint i(0); i != WAVEFORMSAMPLES; ++i) {
+  waveform_.resize(waveFormSamples);
+  for (uint i(0); i != waveFormSamples; ++i) {
     waveform_[i] = waveform[i];
   }
 }

@@ -3570,13 +3570,13 @@ std::unique_ptr<EcalSimComponentShape> EcalTrivialConditionRetriever::getEcalSim
   // --- get the shapes from the user provided txt files
   if (!EBSimComponentShapeFiles_.empty()) {
     int iShape(0);
-    for (auto filename : EBSimComponentShapeFiles_) {
+    for (auto const& filename : EBSimComponentShapeFiles_) {
       std::ifstream shapeEBFile;
       EBshapes.emplace_back();
-      shapeEBFile.open(EBSimComponentShapeFiles_[iShape].c_str());
+      shapeEBFile.open(filename.c_str());
       float ww;
       while (shapeEBFile >> ww)
-        EBshapes[iShape].push_back(ww);
+        EBshapes.back().push_back(ww);
       shapeEBFile.close();
       ++iShape;
     }

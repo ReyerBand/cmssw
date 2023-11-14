@@ -21,7 +21,7 @@ void ComponentShape::fillShape(float& time_interval,
   else {  // fill with dummy values, since this code is only reached before the actual digi simulation
     m_thresh = 0.00013;
     time_interval = 1.0;
-    aVec.reserve(500);
+    aVec.resize(500, 0.);
     for (unsigned int i(0); i != 500; ++i)
       aVec.push_back(0.0);
   }

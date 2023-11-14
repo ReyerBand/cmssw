@@ -27,7 +27,7 @@ protected:
   void fillCollection(bool useDBShape);
   void fillCollection(edm::ConsumesCollector iC);
 
-  bool m_useDBShape;
+  const bool m_useDBShape;
   double m_thresh;
 
 private:

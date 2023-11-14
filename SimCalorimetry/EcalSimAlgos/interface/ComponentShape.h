@@ -25,7 +25,7 @@ protected:
 
 private:
   edm::ESGetToken<EcalSimComponentShape, EcalSimComponentShapeRcd> espsToken_;
-  int shapeIndex_;
+  const int shapeIndex_;
   static constexpr double kTimeToRise = 16.;  //used for timeToRise
                                               // 16 nanoseconds ~aligns the phase II component
                                               // sim to the default with the current setup

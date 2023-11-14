@@ -34,7 +34,7 @@ public:
   int sampleOfInterest() const { return sampleOfInterest_; }
   std::vector<float> waveform() const { return waveform_; }
 
-  static const unsigned int WAVEFORMSAMPLES = 250;
+  static constexpr unsigned int waveFormSamples = 250;
 
 private:
   DetId id_;

@@ -39,7 +39,7 @@ namespace {
         double time = (*payload).time_interval;
         std::vector<std::vector<float> > EBshapes = (*payload).barrel_shapes;
         char nameBuffer[50];
-        for (auto EBshape : EBshapes) {
+        for (auto const &EBshape : EBshapes) {
           EBnbins.push_back(EBshape.size());
           EBxmaxs.push_back(EBnbins[iShape] * time);
           sprintf(nameBuffer, "EBComponentShape_%d", iShape);

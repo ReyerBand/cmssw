@@ -19,9 +19,9 @@ class CaloSubdetectorGeometry;
 
 class EcalTimeMapDigitizer {
 public:
-  struct time_average {
-    static const unsigned short time_average_capacity = 10;  // this corresponds to the number of BX
-    static const unsigned short waveform_capacity = EcalTimeDigi::WAVEFORMSAMPLES;  // this will give a waveform with
+  struct TimeAverage {
+    static constexpr unsigned short time_average_capacity = 10;  // this corresponds to the number of BX
+    static const unsigned short waveform_capacity = EcalTimeDigi::waveFormSamples;  // this will give a waveform with
     static constexpr double waveform_granularity = 1.;                              // a granularity of 1ns
 
     const DetId id;
@@ -30,7 +30,7 @@ public:
     float tot_energy[time_average_capacity];
     float waveform[waveform_capacity];
 
-    time_average(const DetId& myId) : id(myId) {
+    TimeAverage(const DetId& myId) : id(myId) {
       for (unsigned int i(0); i < time_average_capacity; ++i) {
         average_time[i] = 0;
         nhits[i] = 0;
@@ -70,7 +70,7 @@ public:
     };
   };
 
-  typedef time_average TimeSamples;
+  typedef TimeAverage TimeSamples;
 
   typedef EcalTimeDigi Digi;
 
@@ -78,7 +78,7 @@ public:
 
   explicit EcalTimeMapDigitizer(EcalSubdetector myDet, ComponentShapeCollection* componentShapes);
 
-  virtual ~EcalTimeMapDigitizer();
+  ~EcalTimeMapDigitizer();
 
   void add(const std::vector<PCaloHit>& hits, int bunchCrossing);
 
